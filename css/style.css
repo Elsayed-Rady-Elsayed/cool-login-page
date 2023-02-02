@@ -1,0 +1,235 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #212534;
+}
+.login-screen {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+.login-screen .puple {
+  position: absolute;
+  /* background-color: #390da0; */
+  background-image: linear-gradient(
+    var(--spinCard),
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
+  );
+  animation: spin 5s linear infinite;
+  transition: 3s;
+  border-radius: 50%;
+  animation: bubbles 3s linear infinite;
+  transition: 2s all;
+}
+
+@keyframes bubbles {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes bubbles-top {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(calc(100vh - 150px));
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes bubbles-bottom {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(calc(-60vh - 150px));
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.login-screen .puple.one {
+  width: 200px;
+  height: 200px;
+  left: 80px;
+  top: 0px;
+  animation: bubbles-top 5s linear infinite;
+  transition: 2s all;
+}
+.login-screen .puple.two {
+  width: 200px;
+  height: 200px;
+  right: 80px;
+  bottom: 0px;
+  animation: bubbles-bottom 3s linear infinite;
+  transition: 2s all;
+}
+
+.login-screen .puple.four {
+  width: 200px;
+  height: 200px;
+  left: 20px;
+  bottom: 0px;
+  animation: bubbles-bottom 3s linear infinite;
+  transition: 2s all;
+}
+.login-screen .puple.five {
+  width: 200px;
+  height: 200px;
+  right: 20px;
+  top: 0px;
+  animation: bubbles-top 3s linear infinite;
+  transition: 2s all;
+}
+@media (max-width: 767px) {
+  .login-screen .puple.five,
+  .login-screen .puple.four {
+    display: none;
+  }
+  .login-screen .puple.two {
+    right: -10px;
+  }
+}
+.login-screen .content h3 {
+  font-size: 25px;
+  letter-spacing: 1.7px;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 40px 120px 30px;
+  color: #390da0;
+}
+
+@media (max-width: 767px) {
+  .login-screen .content h3 {
+    padding: 40px 60px 30px;
+  }
+}
+@property --spinCard {
+  syntax: "<angle>";
+  initial-value: 130deg;
+  inherits: false;
+}
+
+.bigger-content {
+  padding: 15px;
+  box-shadow: 0px 12px 20px 0px rgb(0 0 0 / 30%),
+    0px 2px 4px 0px rgb(0 0 0 / 4%);
+  /* height: 70%;*/
+  display: flex;
+  width: fit-content;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  z-index: 1;
+  background-image: linear-gradient(
+    var(--spinCard),
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
+  );
+  animation: spin 5s linear infinite;
+}
+
+.login-screen .content {
+  padding: 15px;
+  /* height: 70%;*/
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  position: relative;
+  border-radius: 10px;
+  background-color: #b7c7de;
+  /* z-index: 1; */
+  /* border: 4px solid;
+  animation: change-color;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  transition: 3s all;
+  animation-timing-function: linear; */
+}
+
+@keyframes spin {
+  0% {
+    --spinCard: 0deg;
+  }
+  100% {
+    --spinCard: 360deg;
+  }
+}
+@keyframes change-color {
+  0% {
+    border-color: #390da0 white white white;
+  }
+  25% {
+    border-color: white #390da0 white white;
+  }
+  50% {
+    border-color: white white #390da0 white;
+  }
+  100% {
+    border-color: white white white #390da0;
+  }
+}
+.login-screen form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.login-screen .content .input {
+  padding: 10px 20px;
+  margin: 15px 15px 20px;
+  border-color: transparent transparent #390da0 transparent;
+  font-size: 15px;
+  border-width: 1.5px;
+  background-color: #b7c7de;
+}
+.login-screen .content form .input:focus {
+  border: 1.5px solid;
+  border-color: transparent transparent #390da0 transparent;
+  outline: none;
+}
+.login-screen .content form input[type="submit"] {
+  margin: 15px 15px 10px;
+  padding: 15px;
+  background-color: #390da0;
+  background-image: linear-gradient(
+    var(--spinCard),
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
+  );
+  animation: spin 3s linear infinite;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.login-screen .content p {
+  font-family: sans-serif;
+  margin: 10px 15px 15px;
+  text-align: center;
+  color: #777;
+}
+.login-screen .content p > span {
+  color: #390da0;
+}
